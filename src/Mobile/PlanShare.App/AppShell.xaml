@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--
+  Shell: Container principal de navegação do MAUI
+  - x:Class: Vincula este XAML à classe code-behind AppShell.xaml.cs
+  - xmlns: Usado para poder usar os componentes do MAUI
+  - xmlns:x: Usado para permitir vincular o código C# ao XAML
+  - xmlns:onBoarding: Alias para o namespace (permite usar suas classes aqui)
+  - Title: Título da aplicação (exibido na barra de título em algumas plataformas)
+-->
+<Shell
+  x:Class="PlanShare.App.AppShell"
+  xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+  xmlns:navigation="clr-namespace:PlanShare.App.Navigation"
+  xmlns:onBoarding="clr-namespace:PlanShare.App.Views.Pages.OnBoarding"
+  NavBarIsVisible="False">
+
+  <!--
+    ShellContent: Define uma rota/tela disponível no Shell
+    - Title: Título exibido na navegação (tabs, flyout, etc)
+    - ContentTemplate: Template que define qual página será carregada
+    (usando DataTemplate que faz criar a página só quando for acessada,
+    sem isso ela seria criada instantaneamente)
+    - Route: Nome da rota para navegação programática (ex: GoToAsync("MainPage"))
+    
+    Observação: A primeira ShellContent na hierarquia será automaticamente a tela inicial
+  -->
+  <ShellContent ContentTemplate="{DataTemplate onBoarding:OnBoardingPage}" Route="{x:Static navigation:RoutePages.OnBoardingPage}" />
+</Shell>

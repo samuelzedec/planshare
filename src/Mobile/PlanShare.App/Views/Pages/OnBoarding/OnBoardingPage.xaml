@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage
+  x:Class="PlanShare.App.Views.Pages.OnBoarding.OnBoardingPage"
+  xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+  xmlns:constants="clr-namespace:PlanShare.App.Constants"
+  xmlns:resourceFile="clr-namespace:PlanShare.App.Resources"
+  xmlns:viewModel="clr-namespace:PlanShare.App.ViewModels.Pages.OnBoarding"
+  x:DataType="viewModel:OnBoardingViewModel">
+  <!--
+    Estilo implicito, todos os botões nessa página terão esse estilo aplicado
+    Caso o botão não tenha um estilo explicito
+
+    Tudo que for feito aqui será um recurso estático, então para acessa quando for usado
+    x:Key temos quer Style="{StaticResource keyName}" para referenciar o conteudo aqui
+
+    <ContentPage.Resources>
+    <Style TargetType="Button">
+      <Setter Property="CornerRadius" Value="20" />
+      <Setter Property="FontFamily" Value="RalewayBlack" />
+      <Setter Property="FontSize" Value="18" />
+      <Setter Property="HeightRequest" Value="60" />
+    </Style>
+
+    <Style x:Key="GoogleButtonLogin" TargetType="Button">
+      <Setter Property="BackgroundColor" Value="#F6F6FB" />
+      <Setter Property="TextColor" Value="Black" />
+    </Style>
+  </ContentPage.Resources>
+  -->
+  <!-- Faz com que os elementos fiquem empilhados verticalmente (um embaixo do outro) -->
+  <VerticalStackLayout>
+    <Image Source="hero_image.png" />
+
+    <Label
+      Margin="0,30,0,40"
+      HorizontalOptions="Center"
+      Style="{StaticResource PageTitle}"
+      Text="{x:Static resourceFile:ResourceTexts.PHRASE_SMALL_TASKS_BIG_RESULTS}" />
+
+    <Button
+      BackgroundColor="#F6F6FB"
+      Command="{Binding LoginWithGoogleCommand}"
+      CornerRadius="20"
+      HeightRequest="60"
+      ImageSource="google_logo.png"
+      Text="{x:Static resourceFile:ResourceTexts.PHRASE_ALREADY_HAS_ACCOUNT}"
+      TextColor="Black" />
+
+    <Button
+      Margin="0,20,0,40"
+      Command="{Binding LoginWithEmailAndPasswordCommand}"
+      CornerRadius="20"
+      HeightRequest="60"
+      Text="{x:Static resourceFile:ResourceTexts.LOGIN_WITH_EMAIL_PASSWORD}" />
+
+    <Grid HeightRequest="40">
+      <Grid.GestureRecognizers>
+        <TapGestureRecognizer Command="{Binding RegisterUserAccountCommand}" />
+      </Grid.GestureRecognizers>
+
+      <Label
+        FontSize="18"
+        HorizontalOptions="Center"
+        VerticalOptions="Center">
+        <Label.FormattedText>
+          <FormattedString>
+            <Span
+              FontFamily="{x:Static constants:FontFamily.SecondaryFontRegular}"
+              Text="{x:Static resourceFile:ResourceTexts.PHRASE_DONT_HAVE_ACCOUNT}" />
+            <Span Text=" " />
+            <Span
+              FontFamily="{x:Static constants:FontFamily.SecondaryFontBlack}"
+              Text="{x:Static resourceFile:ResourceTexts.PHRASE_REGISTER_YOUR_ACCOUNT}"
+              TextColor="#0065F2" />
+          </FormattedString>
+        </Label.FormattedText>
+      </Label>
+    </Grid>
+  </VerticalStackLayout>
+</ContentPage>

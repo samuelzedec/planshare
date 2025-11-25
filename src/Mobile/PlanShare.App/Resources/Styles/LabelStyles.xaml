@@ -1,0 +1,25 @@
+<ResourceDictionary
+  xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+  xmlns:constants="clr-namespace:PlanShare.App.Constants">
+  <Style TargetType="Label">
+    <Setter Property="TextColor" Value="Black" />
+    <Setter Property="FontFamily" Value="{x:Static constants:FontFamily.SecondaryFontRegular}" />
+    <Setter Property="FontSize" Value="14" />
+  </Style>
+
+  <Style x:Key="PageTitle" TargetType="Label">
+    <Setter Property="FontFamily" Value="{x:Static constants:FontFamily.MainFontBlack}" />
+    <Setter Property="FontSize" Value="18" />
+  </Style>
+
+  <Style x:Key="TitleForEntry" TargetType="Label">
+    <Setter Property="FontFamily" Value="{x:Static constants:FontFamily.MainFontLight}" />
+    <!--
+    Podemos usar o OnIdiom ou OnPlatform para definir tamanhos diferentes de fonte dependendo do dispositivo.
+    <Setter Property="FontSize" Value="{OnIdiom Phone=14}" />
+    -->
+    <Setter Property="FontSize" Value="{OnIdiom Phone=12}" />
+    <Setter Property="Margin" Value="{OnPlatform Android='4, 0, 0, 0', iOS='0, 0, 0, 4'}" />
+  </Style>
+</ResourceDictionary>

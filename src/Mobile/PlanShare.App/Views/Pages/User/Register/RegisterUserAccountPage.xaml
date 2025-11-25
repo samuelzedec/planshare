@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage
+  x:Class="PlanShare.App.Views.Pages.User.Register.RegisterUserAccountPage"
+  xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+  xmlns:components="clr-namespace:PlanShare.App.Views.Components.Inputs"
+  xmlns:constants="clr-namespace:PlanShare.App.Constants"
+  xmlns:resourceFile="clr-namespace:PlanShare.App.Resources"
+  Shell.NavBarIsVisible="True">
+  <VerticalStackLayout Spacing="30">
+    <Label
+      Style="{StaticResource PageTitle}"
+      Text="{x:Static resourceFile:ResourceTexts.TITLE_REGISTER_MY_ACCOUNT}" />
+
+    <Label
+      Margin="0,-10,0,10"
+      Text="{x:Static resourceFile:ResourceTexts.SUBTITLE_REGISTER_ACCOUNT}" />
+
+    <components:EntryAndLabelComponent
+      Title="{x:Static resourceFile:ResourceTexts.TITLE_NAME}"
+      Placeholder="Bruce Wayne" />
+
+    <components:EntryAndLabelComponent
+      Title="{x:Static resourceFile:ResourceTexts.TITLE_EMAIL}"
+      Keyboard="Email"
+      Placeholder="bruce@wayne.com" />
+
+    <components:EntryAndLabelPasswordComponent
+      Title="{x:Static resourceFile:ResourceTexts.TITLE_PASSWORD}" />
+
+    <Button
+      Margin="0,40"
+      BackgroundColor="#0065F2"
+      CornerRadius="20"
+      HeightRequest="60"
+      Text="{x:Static resourceFile:ResourceTexts.TITLE_REGISTER_MY_ACCOUNT}" />
+
+    <Grid HeightRequest="40">
+      <Label
+        FontSize="18"
+        HorizontalOptions="Center"
+        VerticalOptions="Center">
+        <Label.FormattedText>
+          <FormattedString>
+            <Span
+              FontFamily="{x:Static constants:FontFamily.SecondaryFontRegular}"
+              Text="{x:Static resourceFile:ResourceTexts.PHRASE_ALREADY_HAS_ACCOUNT}" />
+            <Span Text=" " />
+            <Span
+              FontFamily="{x:Static constants:FontFamily.SecondaryFontBlack}"
+              Text="{x:Static resourceFile:ResourceTexts.PHRASE_DO_LOGIN}"
+              TextColor="#0065F2" />
+          </FormattedString>
+        </Label.FormattedText>
+      </Label>
+    </Grid>
+  </VerticalStackLayout>
+</ContentPage>
