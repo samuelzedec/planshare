@@ -1,0 +1,16 @@
+<Solution>
+  <Folder Name="/src/" />
+  <Folder Name="/src/Backend/">
+    <Project Path="src/Backend/PlanShare.Api/PlanShare.Api.csproj" />
+    <Project Path="src/Backend/PlanShare.Application/PlanShare.Application.csproj" />
+    <Project Path="src/Backend/PlanShare.Domain/PlanShare.Domain.csproj" />
+    <Project Path="src/Backend/PlanShare.Infrastructure/PlanShare.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/src/Shared/">
+    <Project Path="src/Shared/PlanShare.Communication/PlanShare.Communication.csproj" />
+    <Project Path="src/Shared/PlanShare.Exceptions/PlanShare.Exceptions.csproj" />
+  </Folder>
+  <Folder Name="/src/Mobile/">
+    <Project Path="src/Mobile/PlanShare.App/PlanShare.App.csproj" />
+  </Folder>
+</Solution>
