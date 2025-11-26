@@ -1,10 +1,10 @@
-#if IOS
-using PlanShare.App.Handlers;
-#endif
 using PlanShare.App.Constants;
 using PlanShare.App.Navigation;
 using PlanShare.App.Views.Pages.Login.DoLogin;
 using PlanShare.App.Views.Pages.User.Register;
+#if IOS
+using PlanShare.App.Handlers;
+#endif
 
 namespace PlanShare.App.Extensions;
 
@@ -40,10 +40,6 @@ public static class MauiAppBuilderExtensions
             {
 #if IOS
                 handlers.AddHandler<Entry, CustomEntryHandler>();
-#endif
-
-#if Android
-                // Android handlers
 #endif
             });
             return builder;

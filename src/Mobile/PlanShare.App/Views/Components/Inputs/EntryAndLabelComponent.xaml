@@ -14,7 +14,7 @@
       Keyboard="{Binding Keyboard}"
       Placeholder="{Binding Placeholder}"
       PlaceholderColor="#808080"
-      ReturnType="Done"
+      ReturnType="Next"
       TextColor="Black" />
   </VerticalStackLayout>
 </ContentView>
