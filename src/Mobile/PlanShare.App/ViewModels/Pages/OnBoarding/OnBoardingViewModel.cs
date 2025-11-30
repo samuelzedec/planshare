@@ -23,12 +23,11 @@ public partial class OnBoardingViewModel
     [RelayCommand] // Faz tudo que está em cima so que de forma implicita
     private static void LoginWithGoogle()
     {
-        if(Application.Current?.UserAppTheme is AppTheme.Dark)
-            Application.Current.UserAppTheme = AppTheme.Light;
-        else
-            Application.Current?.UserAppTheme = AppTheme.Dark;
+        Application.Current?.UserAppTheme = Application.Current.UserAppTheme is AppTheme.Dark
+            ? AppTheme.Light
+            : AppTheme.Dark;
     }
-    
+
     [RelayCommand]
     private static async Task RegisterUserAccount()
         => await Shell.Current.GoToAsync(RoutePages.UserRegisterAccountPage);

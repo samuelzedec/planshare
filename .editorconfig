@@ -11,9 +11,7 @@ indent_size = 2
 [*.xaml]
 indent_size = 2
 tab_width = 2
-
-[*.xaml.cs]
-resharper_ambiguous_invocation_highlighting = none
+resharper_xaml_binding_with_context_not_resolved_highlighting = none
 
 # C# files
 [*.cs]

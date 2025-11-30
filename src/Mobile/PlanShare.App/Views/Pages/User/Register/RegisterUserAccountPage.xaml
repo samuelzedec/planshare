@@ -6,8 +6,8 @@
   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
   xmlns:components="clr-namespace:PlanShare.App.Views.Components.Inputs"
   xmlns:constants="clr-namespace:PlanShare.App.Constants"
-  xmlns:resourceFile="clr-namespace:PlanShare.App.Resources"
-  Shell.NavBarIsVisible="True">
+  xmlns:resourceFile="clr-namespace:PlanShare.App.Resources">
+
   <VerticalStackLayout Spacing="30">
     <Label
       Style="{StaticResource PageTitle}"
@@ -31,14 +31,16 @@
 
     <Button
       Margin="0,40"
-      BackgroundColor="{AppThemeBinding Light={StaticResource HIGHLIGHT_COLOR_LIGHT}, Dark={StaticResource HIGHLIGHT_COLOR_DARK}}"
+      BackgroundColor="{AppThemeBinding 
+        Light={StaticResource HIGHLIGHT_COLOR_LIGHT}, 
+        Dark={StaticResource HIGHLIGHT_COLOR_DARK}}"
       CornerRadius="20"
       HeightRequest="60"
       Text="{x:Static resourceFile:ResourceTexts.TITLE_REGISTER_MY_ACCOUNT}" />
 
-    <Grid HeightRequest="40">
+    <Grid HeightRequest="50">
       <Label
-        FontSize="18"
+        FontSize="17"
         HorizontalOptions="Center"
         VerticalOptions="Center">
         <Label.FormattedText>
@@ -50,7 +52,9 @@
             <Span
               FontFamily="{x:Static constants:FontFamily.SecondaryFontBlack}"
               Text="{x:Static resourceFile:ResourceTexts.PHRASE_DO_LOGIN}"
-              TextColor="{AppThemeBinding Light={StaticResource HIGHLIGHT_COLOR_LIGHT}, Dark={StaticResource HIGHLIGHT_COLOR_DARK}}" />
+              TextColor="{AppThemeBinding 
+                Light={StaticResource HIGHLIGHT_COLOR_LIGHT},
+                Dark={StaticResource HIGHLIGHT_COLOR_DARK}}" />
           </FormattedString>
         </Label.FormattedText>
       </Label>

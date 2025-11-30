@@ -13,8 +13,6 @@
     <Entry
       Keyboard="{Binding Keyboard}"
       Placeholder="{Binding Placeholder}"
-      PlaceholderColor="#808080"
-      ReturnType="Next"
-      TextColor="Black" />
+      ReturnType="Next" />
   </VerticalStackLayout>
 </ContentView>

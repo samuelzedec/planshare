@@ -6,8 +6,7 @@
   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
   xmlns:components="clr-namespace:PlanShare.App.Views.Components.Inputs"
   xmlns:constants="clr-namespace:PlanShare.App.Constants"
-  xmlns:resourceFile="clr-namespace:PlanShare.App.Resources"
-  Shell.NavBarIsVisible="True">
+  xmlns:resourceFile="clr-namespace:PlanShare.App.Resources">
   <VerticalStackLayout Spacing="30">
     <Label
       Margin="0,0,0,10"

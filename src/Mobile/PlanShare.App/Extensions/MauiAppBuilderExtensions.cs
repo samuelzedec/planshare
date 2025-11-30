@@ -1,10 +1,8 @@
 using PlanShare.App.Constants;
 using PlanShare.App.Navigation;
+using PlanShare.App.Resources.Styles.Handlers;
 using PlanShare.App.Views.Pages.Login.DoLogin;
 using PlanShare.App.Views.Pages.User.Register;
-#if IOS
-using PlanShare.App.Handlers;
-#endif
 
 namespace PlanShare.App.Extensions;
 
@@ -16,7 +14,6 @@ public static class MauiAppBuilderExtensions
         {
             Routing.RegisterRoute(RoutePages.LoginPage, typeof(DoLoginPage));
             Routing.RegisterRoute(RoutePages.UserRegisterAccountPage, typeof(RegisterUserAccountPage));
-
             return builder;
         }
 
@@ -36,12 +33,7 @@ public static class MauiAppBuilderExtensions
 
         public MauiAppBuilder ConfigurePlatformHandlers()
         {
-            builder.ConfigureMauiHandlers(handlers =>
-            {
-#if IOS
-                handlers.AddHandler<Entry, CustomEntryHandler>();
-#endif
-            });
+            builder.ConfigureMauiHandlers(_ => CustomEntryHandler.Customize());
             return builder;
         }
     }

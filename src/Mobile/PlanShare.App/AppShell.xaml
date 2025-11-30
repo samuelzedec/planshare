@@ -1,21 +1,23 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 
-<!--
-  Shell: Container principal de navegação do MAUI
-  - x:Class: Vincula este XAML à classe code-behind AppShell.xaml.cs
-  - xmlns: Usado para poder usar os componentes do MAUI
-  - xmlns:x: Usado para permitir vincular o código C# ao XAML
-  - xmlns:onBoarding: Alias para o namespace (permite usar suas classes aqui)
-  - Title: Título da aplicação (exibido na barra de título em algumas plataformas)
--->
 <Shell
   x:Class="PlanShare.App.AppShell"
   xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
   xmlns:navigation="clr-namespace:PlanShare.App.Navigation"
   xmlns:onBoarding="clr-namespace:PlanShare.App.Views.Pages.OnBoarding"
-  NavBarIsVisible="False">
+  Title="PlanShare.App"
+  NavBarHasShadow="False"
+  ForegroundColor="{AppThemeBinding
+    Light={StaticResource PRIMARY_COLOR_LIGHT},
+    Dark={StaticResource PRIMARY_COLOR_DARK}}"
+  BackgroundColor="{AppThemeBinding 
+    Light={StaticResource PAGE_BACKGROUND_COLOR_LIGHT},
+    Dark={StaticResource PAGE_BACKGROUND_COLOR_DARK}}">
 
+  <ShellContent
+    ContentTemplate="{DataTemplate onBoarding:OnBoardingPage}"
+    Route="{x:Static navigation:RoutePages.OnBoardingPage}" />
   <!--
     ShellContent: Define uma rota/tela disponível no Shell
     - Title: Título exibido na navegação (tabs, flyout, etc)
@@ -26,5 +28,13 @@
     
     Observação: A primeira ShellContent na hierarquia será automaticamente a tela inicial
   -->
-  <ShellContent ContentTemplate="{DataTemplate onBoarding:OnBoardingPage}" Route="{x:Static navigation:RoutePages.OnBoardingPage}" />
 </Shell>
+
+<!--
+  Shell: Container principal de navegação do MAUI
+  - x:Class: Vincula este XAML à classe code-behind AppShell.xaml.cs
+  - xmlns: Usado para poder usar os componentes do MAUI
+  - xmlns:x: Usado para permitir vincular o código C# ao XAML
+  - xmlns:onBoarding: Alias para o namespace (permite usar suas classes aqui)
+  - Title: Título da aplicação (exibido na barra de título em algumas plataformas)
+-->

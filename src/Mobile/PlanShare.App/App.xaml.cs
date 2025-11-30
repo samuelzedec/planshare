@@ -7,9 +7,7 @@
 public partial class App : Application
 {
     public App()
-    {
-        InitializeComponent();
-    }
+        => InitializeComponent();
 
     /*
      * O método CreateWindow cria a janela (container) da aplicação.

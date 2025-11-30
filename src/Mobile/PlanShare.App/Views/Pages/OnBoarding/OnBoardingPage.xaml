@@ -6,8 +6,18 @@
   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
   xmlns:constants="clr-namespace:PlanShare.App.Constants"
   xmlns:resourceFile="clr-namespace:PlanShare.App.Resources"
+  xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
   xmlns:viewModel="clr-namespace:PlanShare.App.ViewModels.Pages.OnBoarding"
-  x:DataType="viewModel:OnBoardingViewModel">
+  x:DataType="viewModel:OnBoardingViewModel"
+  Shell.NavBarIsVisible="False">
+  <ContentPage.Behaviors>
+    <toolkit:StatusBarBehavior
+      StatusBarColor="{AppThemeBinding 
+        Light={StaticResource PAGE_BACKGROUND_COLOR_LIGHT}, 
+        Dark={StaticResource PAGE_BACKGROUND_COLOR_DARK}}"
+      StatusBarStyle="{AppThemeBinding Light=DarkContent, Dark=LightContent}" />
+  </ContentPage.Behaviors>
+
   <!--
     Estilo implicito, todos os botões nessa página terão esse estilo aplicado
     Caso o botão não tenha um estilo explicito
@@ -55,13 +65,13 @@
       HeightRequest="60"
       Text="{x:Static resourceFile:ResourceTexts.LOGIN_WITH_EMAIL_PASSWORD}" />
 
-    <Grid HeightRequest="40">
+    <Grid HeightRequest="50">
       <Grid.GestureRecognizers>
         <TapGestureRecognizer Command="{Binding RegisterUserAccountCommand}" />
       </Grid.GestureRecognizers>
 
       <Label
-        FontSize="18"
+        FontSize="17"
         HorizontalOptions="Center"
         VerticalOptions="Center">
         <Label.FormattedText>
@@ -73,7 +83,9 @@
             <Span
               FontFamily="{x:Static constants:FontFamily.SecondaryFontBlack}"
               Text="{x:Static resourceFile:ResourceTexts.PHRASE_REGISTER_YOUR_ACCOUNT}"
-              TextColor="{AppThemeBinding Light={StaticResource HIGHLIGHT_COLOR_LIGHT}, Dark={StaticResource HIGHLIGHT_COLOR_DARK}}" />
+              TextColor="{AppThemeBinding 
+                Light={StaticResource HIGHLIGHT_COLOR_LIGHT}, 
+                Dark={StaticResource HIGHLIGHT_COLOR_DARK}}" />
           </FormattedString>
         </Label.FormattedText>
       </Label>
