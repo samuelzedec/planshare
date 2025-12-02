@@ -3,7 +3,9 @@ using PlanShare.App.Navigation;
 
 namespace PlanShare.App.ViewModels.Pages.OnBoarding;
 
-public partial class OnBoardingViewModel
+public sealed partial class OnBoardingViewModel(
+    INavigationService navigationService)
+    : ViewModelBase
 {
     // public ICommand LoginWithEmailAndPasswordCommand { get; set; }
     //
@@ -17,18 +19,17 @@ public partial class OnBoardingViewModel
     // como LoginWithEmailAndPasswordCommand no XAML
     // Pode ser privado, para encapsular e deixar somente o comando exposto
     [RelayCommand]
-    private static async Task LoginWithEmailAndPassword()
-        => await Shell.Current.GoToAsync(RoutePages.LoginPage);
+    private async Task LoginWithEmailAndPassword()
+        => await navigationService.GoToAsync(RoutePages.LoginPage);
 
     [RelayCommand] // Faz tudo que está em cima so que de forma implicita
     private static void LoginWithGoogle()
     {
         Application.Current?.UserAppTheme = Application.Current.UserAppTheme is AppTheme.Dark
-            ? AppTheme.Light
-            : AppTheme.Dark;
+            ? AppTheme.Light : AppTheme.Dark;
     }
 
     [RelayCommand]
-    private static async Task RegisterUserAccount()
-        => await Shell.Current.GoToAsync(RoutePages.UserRegisterAccountPage);
+    private async Task RegisterUserAccount()
+        => await navigationService.GoToAsync(RoutePages.UserRegisterAccountPage);
 }

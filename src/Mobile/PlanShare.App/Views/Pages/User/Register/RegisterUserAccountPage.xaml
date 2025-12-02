@@ -6,7 +6,9 @@
   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
   xmlns:components="clr-namespace:PlanShare.App.Views.Components.Inputs"
   xmlns:constants="clr-namespace:PlanShare.App.Constants"
-  xmlns:resourceFile="clr-namespace:PlanShare.App.Resources">
+  xmlns:resourceFile="clr-namespace:PlanShare.App.Resources"
+  xmlns:viewModel="clr-namespace:PlanShare.App.ViewModels.Pages.User.Register"
+  x:DataType="viewModel:RegisterUserAccountViewModel">
 
   <VerticalStackLayout Spacing="30">
     <Label
@@ -19,15 +21,18 @@
 
     <components:EntryAndLabelComponent
       Title="{x:Static resourceFile:ResourceTexts.TITLE_NAME}"
-      Placeholder="Bruce Wayne" />
+      Placeholder="Bruce Wayne"
+      TextValue="{Binding Model.Name}" />
 
     <components:EntryAndLabelComponent
       Title="{x:Static resourceFile:ResourceTexts.TITLE_EMAIL}"
       Keyboard="Email"
-      Placeholder="bruce@wayne.com" />
+      Placeholder="bruce@wayne.com"
+      TextValue="{Binding Model.Email}" />
 
     <components:EntryAndLabelPasswordComponent
-      Title="{x:Static resourceFile:ResourceTexts.TITLE_PASSWORD}" />
+      Title="{x:Static resourceFile:ResourceTexts.TITLE_PASSWORD}"
+      TextValue="{Binding Model.Password}" />
 
     <Button
       Margin="0,40"
@@ -39,6 +44,10 @@
       Text="{x:Static resourceFile:ResourceTexts.TITLE_REGISTER_MY_ACCOUNT}" />
 
     <Grid HeightRequest="50">
+      <Grid.GestureRecognizers>
+        <TapGestureRecognizer Command="{Binding GoToLoginCommand}" />
+      </Grid.GestureRecognizers>
+
       <Label
         FontSize="17"
         HorizontalOptions="Center"

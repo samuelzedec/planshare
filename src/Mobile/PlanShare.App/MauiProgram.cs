@@ -12,6 +12,7 @@ public static class MauiProgram
             .UseMauiApp<App>()
             .UseMauiCommunityToolkit()
             .ConfigurePages()
+            .ConfigureServices()
             .ConfigureMauiFonts()
             .ConfigurePlatformHandlers();
 

@@ -4,7 +4,7 @@ namespace PlanShare.App.Views.Pages.OnBoarding;
 
 public partial class OnBoardingPage : ContentPage
 {
-    public OnBoardingPage()
+    public OnBoardingPage(OnBoardingViewModel viewModel)
     {
         /*
          * Carrega o XAML vinculado a esta classe e converte em objetos C#,
@@ -15,6 +15,6 @@ public partial class OnBoardingPage : ContentPage
         /*
          * Faz a conexão dessa view a classe de ViewModel
          */
-        BindingContext = new OnBoardingViewModel();
+        BindingContext = viewModel;
     }
 }

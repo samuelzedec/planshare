@@ -18,6 +18,10 @@ public partial class EntryAndLabelComponent : ContentView
     public static readonly BindableProperty KeyboardProperty = BindableProperty.Create(
         nameof(Keyboard), typeof(Keyboard), typeof(EntryAndLabelComponent), Keyboard.Default);
 
+    // Passando o BindingMode.TwoWay para que o valor seja atualizado quando mudar o valor no componente
+    public static readonly BindableProperty TextValueProperty = BindableProperty.Create(
+        nameof(TextValue), typeof(string), typeof(EntryAndLabelComponent), string.Empty, BindingMode.TwoWay);
+
     #endregion
 
     #region Properties
@@ -40,6 +44,12 @@ public partial class EntryAndLabelComponent : ContentView
         set => SetValue(KeyboardProperty, value);
     }
 
+    public string TextValue
+    {
+        get => (string)GetValue(TextValueProperty);
+        set => SetValue(TextValueProperty, value);
+    }
+
     #endregion
 
     public EntryAndLabelComponent()
@@ -48,7 +58,7 @@ public partial class EntryAndLabelComponent : ContentView
         // Da para fazer que nem usando ViewModels
         // BindingContext = this;
     }
-    
+
     // Ai passamos esse método para setar o valor, nesse caso é preciso colocar o x:Name no componente no xaml
     // private static void Teste(BindableObject bindable, object oldValue, object newValue)
     // {
