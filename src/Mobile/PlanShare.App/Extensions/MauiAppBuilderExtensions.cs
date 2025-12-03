@@ -1,12 +1,17 @@
+using System.Reflection;
 using CommunityToolkit.Maui;
+using Microsoft.Extensions.Configuration;
 using PlanShare.App.Constants;
+using PlanShare.App.Data.Network.Api;
 using PlanShare.App.Navigation;
 using PlanShare.App.Resources.Styles.Handlers;
+using PlanShare.App.UseCases.User.Register;
 using PlanShare.App.ViewModels.Pages.Login.DoLogin;
 using PlanShare.App.ViewModels.Pages.OnBoarding;
 using PlanShare.App.ViewModels.Pages.User.Register;
 using PlanShare.App.Views.Pages.Login.DoLogin;
 using PlanShare.App.Views.Pages.User.Register;
+using Refit;
 
 namespace PlanShare.App.Extensions;
 
@@ -54,6 +59,36 @@ public static class MauiAppBuilderExtensions
         public MauiAppBuilder ConfigurePlatformHandlers()
         {
             builder.ConfigureMauiHandlers(_ => CustomEntryHandler.Customize());
+            return builder;
+        }
+
+        public MauiAppBuilder ConfigureAppSettings()
+        {
+            using var fileStream = Assembly
+                .GetExecutingAssembly()
+                .GetManifestResourceStream("PlanShare.App.appsettings.json");
+
+            var config = new ConfigurationBuilder()
+                .AddJsonStream(fileStream!)
+                .Build();
+
+            builder.Configuration.AddConfiguration(config);
+            return builder;
+        }
+
+        public MauiAppBuilder ConfigureHttpClients()
+        {
+            var apiUrl = builder.Configuration.GetValue<string>("ApiUrl")!;
+            builder.Services
+                .AddRefitClient<IUserApiClient>()
+                .ConfigureHttpClient(c => c.BaseAddress = new Uri(apiUrl));
+
+            return builder;
+        }
+
+        public MauiAppBuilder ConfigureUseCases()
+        {
+            builder.Services.AddTransient<IRegisterUserUseCase, RegisterUserUseCase>();
             return builder;
         }
     }

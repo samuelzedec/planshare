@@ -11,10 +11,13 @@ public static class MauiProgram
         builder
             .UseMauiApp<App>()
             .UseMauiCommunityToolkit()
+            .ConfigureAppSettings()
             .ConfigurePages()
             .ConfigureServices()
             .ConfigureMauiFonts()
-            .ConfigurePlatformHandlers();
+            .ConfigurePlatformHandlers()
+            .ConfigureHttpClients()
+            .ConfigureUseCases();
 
         return builder.Build();
     }

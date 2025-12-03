@@ -1,4 +1,5 @@
 using Microsoft.OpenApi.Models;
+using PlanShare.Api.Converters;
 using PlanShare.Api.Filters;
 using PlanShare.Api.Middleware;
 using PlanShare.Api.Token;
@@ -9,7 +10,9 @@ using PlanShare.Infrastructure.Extensions;
 using PlanShare.Infrastructure.Migrations;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddControllers();
+builder.Services.AddControllers()
+    .AddJsonOptions(options => options.JsonSerializerOptions.Converters.Add(new StringConverter()));
+
 builder.Services.AddOpenApi();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(config =>
@@ -17,11 +20,12 @@ builder.Services.AddSwaggerGen(config =>
     config.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
         Name = "Authorization",
-        Description = """
-                      JWT Authorization header using the Bearer scheme.
-                                            Enter 'Bearer' [space] and then your token in the text input below.
-                                            Example: 'Bearer 12345abcdef'
-                      """,
+        Description =
+            """
+            JWT Authorization header using the Bearer scheme.
+            Enter 'Bearer' [space] and then your token in the text input below.
+            Example: 'Bearer 12345abcdef'
+            """,
         In = ParameterLocation.Header,
         Scheme = "Bearer",
         Type = SecuritySchemeType.ApiKey
