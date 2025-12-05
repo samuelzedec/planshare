@@ -1,5 +1,10 @@
 using CommunityToolkit.Mvvm.ComponentModel;
+using PlanShareEnums = PlanShare.App.Enums;
 
 namespace PlanShare.App.ViewModels.Pages;
 
-public abstract class ViewModelBase : ObservableObject;
+public abstract partial class ViewModelBase : ObservableObject
+{
+    [ObservableProperty] 
+    private PlanShareEnums::StatusPage _statusPage = PlanShareEnums::StatusPage.Default;
+}

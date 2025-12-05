@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Maui;
 using PlanShare.App.Extensions;
+using SkiaSharp.Views.Maui.Controls.Hosting;
 
 namespace PlanShare.App;
 
@@ -11,6 +12,7 @@ public static class MauiProgram
         builder
             .UseMauiApp<App>()
             .UseMauiCommunityToolkit()
+            .UseSkiaSharp()
             .ConfigureAppSettings()
             .ConfigurePages()
             .ConfigureServices()

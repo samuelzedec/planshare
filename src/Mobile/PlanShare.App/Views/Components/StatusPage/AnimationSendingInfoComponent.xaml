@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentView
+  xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+  xmlns:skiaSharp="clr-namespace:SkiaSharp.Extended.UI.Controls;assembly=SkiaSharp.Extended.UI"
+  x:Class="PlanShare.App.Views.Components.StatusPage.AnimationSendingInfoComponent">
+
+  <skiaSharp:SKLottieView
+    Source="airplane.json"
+    VerticalOptions="Center"
+    HorizontalOptions="Center"
+    HeightRequest="300"
+    WidthRequest="300"
+    RepeatCount="-1" />
+  <!--O -1 no RepeatCount significa que a animação irá ficar em loop infinito-->
+</ContentView>

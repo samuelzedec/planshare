@@ -5,6 +5,7 @@ using PlanShare.App.Constants;
 using PlanShare.App.Data.Network.Api;
 using PlanShare.App.Navigation;
 using PlanShare.App.Resources.Styles.Handlers;
+using PlanShare.App.UseCases.Login.DoLogin;
 using PlanShare.App.UseCases.User.Register;
 using PlanShare.App.ViewModels.Pages.Login.DoLogin;
 using PlanShare.App.ViewModels.Pages.OnBoarding;
@@ -83,12 +84,19 @@ public static class MauiAppBuilderExtensions
                 .AddRefitClient<IUserApiClient>()
                 .ConfigureHttpClient(c => c.BaseAddress = new Uri(apiUrl));
 
+            builder.Services
+                .AddRefitClient<ILoginApiClient>()
+                .ConfigureHttpClient(c => c.BaseAddress = new Uri(apiUrl));
+
             return builder;
         }
 
         public MauiAppBuilder ConfigureUseCases()
         {
-            builder.Services.AddTransient<IRegisterUserUseCase, RegisterUserUseCase>();
+            builder.Services
+                .AddTransient<IRegisterUserUseCase, RegisterUserUseCase>()
+                .AddTransient<IDoLoginUseCase, DoLoginUseCase>();
+
             return builder;
         }
     }
