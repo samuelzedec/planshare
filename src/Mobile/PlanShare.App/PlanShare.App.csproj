@@ -24,7 +24,7 @@
     <ApplicationTitle>PlanShare</ApplicationTitle>
 
     <!-- App Identifier -->
-    <ApplicationId>com.samuelzedec.planshare.app</ApplicationId>
+    <ApplicationId>com.samuelzedec.planshare</ApplicationId>
 
     <!-- Versions -->
     <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>

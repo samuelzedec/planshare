@@ -60,6 +60,10 @@ public static class MauiAppBuilderExtensions
         public MauiAppBuilder ConfigurePlatformHandlers()
         {
             builder.ConfigureMauiHandlers(_ => CustomEntryHandler.Customize());
+#if IOS
+            builder.ConfigureMauiHandlers(handlers =>
+                handlers.AddHandler<Shell, CustomShellHandler>());
+#endif
             return builder;
         }
 
